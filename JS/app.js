@@ -21,7 +21,7 @@ let y = 10;
 
 //1.4 ---------------------------------------------
 
-let z = h + y;
+let z = (h + y);
 
 
 /* Iteración #2: Variables avanzadas
