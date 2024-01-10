@@ -69,9 +69,7 @@ console.log ("Soy " + firstName + " " + lastName +", tengo " + age + " años y m
 const toy1 = {name: 'Buss myYear', price: 19};
 const toy2 = {name: 'Rallo mcKing', price: 29};
 
-let suma = toy1.price + toy2.price;
-
-console.log ("suma juguetes" , suma);
+console.log ("suma juguetes" , toy1.price + toy2.price)
 
 //1.4 ---------------------------------------------
 
@@ -84,8 +82,8 @@ console.log (globalBasePrice)
 
 car1.finalPrice = car1.basePrice + globalBasePrice;
 car2.finalPrice = car2.basePrice + globalBasePrice;
-console.log (car1.finalPrice);
-console.log (car2.finalPrice);
+console.log ("coche 1" , car1.finalPrice);
+console.log ( "coche 2" , car2.finalPrice);
 
 
 /*
@@ -165,4 +163,42 @@ const rickAndMortyCharacters = ["Rick", "Beth", "Jerry", "Morty", "Summer", "Lap
 1.6 Elimina el segundo elemento del array y muestra el array por consola.
 const rickAndMortyCharacters = ["Rick", "Beth", "Jerry", "Morty", "Summer", "Lapiz Lopez"];
 */
+
+
+//1.1--------------------------------------------------------
+
+const avengers = ["HULK", "SPIDERMAN", "BLACK PANTHER"];
+console.log (avengers[0]);
+
+//1.2--------------------------------------------------------
+
+avengers [0] = "IRONMAN";
+console.log (avengers);
+
+//1.3--------------------------------------------------------
+
+console.log(avengers.length);
+
+//1.4--------------------------------------------------------
+
+const rickAndMortyCharacters = ["Rick", "Beth", "Jerry"];
+
+rickAndMortyCharacters.push ("Morty", "Summer")
+console.log(rickAndMortyCharacters);
+
+//1.5--------------------------------------------------------
+
+const rickAndMortyCharacters1 = ["Rick", "Beth", "Jerry", "Morty", "Summer", "Lapiz Lopez"];
+rickAndMortyCharacters1.pop();
+
+console.log(rickAndMortyCharacters1[0],(rickAndMortyCharacters1[rickAndMortyCharacters1.length-1]));
+
+//1.6---------------------------------------------------------
+
+rickAndMortyCharacters1.splice(1,1);
+
+console.log(rickAndMortyCharacters1);
+
+
+
 
