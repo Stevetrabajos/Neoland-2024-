@@ -46,3 +46,24 @@ const average=(numbers2)=>{
   return suma/numbers2.length
 }
 console.log(average(numbers2))
+
+//-------------------------------------------- #ITERATION 5
+
+let mixedElements = [6, 1, "Rayo", 1, "vallecano", "10", "upgrade", 8, "hub"];
+
+const averageWord=(mixedElements)=>{
+  let strings = 0
+  let numbers = 0
+for (i=0; i<mixedElements.length; i++){
+  if (typeof mixedElements[i]==="string"){
+    strings = strings + mixedElements[i].length;
+  }
+  else if (typeof mixedElements[i]==="number"){
+    numbers = numbers + mixedElements[i];
+  }
+}
+return strings+numbers;
+}
+
+console.log (averageWord(mixedElements));
+
