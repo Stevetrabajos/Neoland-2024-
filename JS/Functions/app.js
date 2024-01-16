@@ -67,3 +67,32 @@ return strings+numbers;
 
 console.log (averageWord(mixedElements));
 
+
+//------------------------------------------------------------------- ITERATION 6
+
+const duplicates = [
+  'sushi',
+  'pizza',
+  'burger',
+  'potatoe',
+  'pasta',
+  'ice-cream',
+  'pizza',
+  'chicken',
+  'onion rings',
+  'pasta',
+  'soda'
+];
+
+const sinduplicados= (array) =>{ //abrimos la función  para que recorra el array deseado, en este caso será duplicates
+let arraysinduplicados= []
+
+for (let i =0; i<array.length; i++){ //realizamos el bucle "for" para que recorra la función progresivamente de la posición 0... hasta el final
+if (!arraysinduplicados.includes(array[i])){ // declaramos la condición 
+  arraysinduplicados.push(array[i])
+}
+}
+return arraysinduplicados
+}
+console.log(sinduplicados(duplicates))
+  //var sinduplicados= [...new Set(duplicates)]
