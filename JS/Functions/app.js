@@ -85,14 +85,84 @@ const duplicates = [
 ];
 
 const sinduplicados= (array) =>{ //abrimos la función  para que recorra el array deseado, en este caso será duplicates
-let arraysinduplicados= []
+let arraysinduplicados= []// declaramos una nueva array que será la que muestre el resultado
 
 for (let i =0; i<array.length; i++){ //realizamos el bucle "for" para que recorra la función progresivamente de la posición 0... hasta el final
-if (!arraysinduplicados.includes(array[i])){ // declaramos la condición 
-  arraysinduplicados.push(array[i])
+if (!arraysinduplicados.includes(array[i])){ // declaramos la condición de que si el nuevo array "arraysindupliacados" no contiene la plabra del array que se esta iterando 
+  arraysinduplicados.push(array[i])// se le haga un push de la misma, es decir, la añade a el array nuevo
 }
 }
 return arraysinduplicados
 }
 console.log(sinduplicados(duplicates))
   //var sinduplicados= [...new Set(duplicates)]
+
+//--------------------------------------------------------------Iteration #7
+//**Iteración #7: Buscador de nombres**
+
+/*Crea una función que reciba por parámetro un array y el valor que desea comprobar que existe dentro de dicho array - 
+comprueba si existe el elemento, en caso que existan nos devuelve un true y la posición de dicho elemento y por la contra un false. 
+Puedes usar este array para probar tu función:*/
+
+  const nameFinder = [
+    'Peter',
+    'Steve',
+    'Tony',
+    'Natasha',
+    'Clint',
+    'Logan',
+    'Xabier',
+    'Bruce',
+    'Peggy',
+    'Jessica',
+    'Marc'
+  ];
+  const finderNames = (arr, nombre) => {     
+    if (arr.find(i => nombre === i)){ // declaramos a la función una condición en la que se encuentre, en el array deseado, el elemento que sea igual al que estamos buscando(nombre)
+      console.log(true, arr.indexOf(nombre))// si es así la consola imprime true y, con el arr.indexOf, también la posición del array en la que se encuentra
+      return
+    } else {
+      console.log(false)// si no lo encuentra imprime false
+    }
+  };
+
+  const resultado = finderNames (nameFinder, 'Tony')
+
+
+  //----------------------------------------------------------------Iteration #8
+
+/*Iteration #8: Contador de repeticiones
+Crea una función que nos devuelva el número de veces que se repite cada una de las palabras que lo conforma.  Puedes usar este array para probar tu función:*/
+
+const counterWords = [
+  'code',
+  'repeat',
+  'eat',
+  'sleep',
+  'code',
+  'enjoy',
+  'sleep',
+  'code',
+  'enjoy',
+  'upgrade',
+  'code'
+];
+const repeatCounter =(array)=>{
+  let nombres=[]// array vacio donde se almacena cada nombre del array adjunto
+  let almacenador =[]// array donde se almacena la cantidad de nombres repetidos en orden
+  let contador = 1 //aquí guardaremos las cantidades que se suma si estan repetidos
+array.sort()// ordenamos el array para que la funcion pueda ser iterada de forma correcta para el codigo establecido
+  for (let i=0; i<array.length; i++){// iteramos el array
+    if (array [i+1] === array[i]) // si el elemento es igual al elemento siguiente sumaremos al contador
+    contador++;
+  
+  else {
+  nombres.push(array[i]);// si no es igual se almacena en la lista de nombres y el contador será = 1 "solo existe un elemento no duplicado"
+    almacenador.push(contador);
+    contador=1;
+  }
+} 
+return ('los nombres: '+ nombres + ' se repiten '+ almacenador+ ' veces.')
+}
+console.log(repeatCounter(counterWords));
+
