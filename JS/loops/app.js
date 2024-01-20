@@ -51,3 +51,24 @@ Totravel.push(placesToTravel2[i]);
 return Totravel
 }
 console.log(poli(placesToTravel2))
+
+
+
+//-------------------------------Iteration #6
+
+
+const toys = [
+    {id: 5, name: 'Buzz MyYear'}, 
+    {id: 11, name: 'Action Woman'}, 
+    {id: 23, name: 'Barbie Man'}, 
+    {id: 40, name: 'El gato con Guantes'},
+    {id: 40, name: 'El gato felix'}
+    ]
+        const newtoys= [];
+for(const word of toys){
+if (!word.name.includes("gato")){
+newtoys.push(word);
+}
+
+}
+console.log(newtoys)
