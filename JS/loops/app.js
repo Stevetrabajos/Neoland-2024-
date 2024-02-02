@@ -11,7 +11,42 @@ const incluye = (products) =>{
 
     //------------------------------------------Iteration 2
 
+//!----------------------------------------------------------------------------------------------------------------
+//?-Comprueba en cada uno de los usuarios que tenga al menos dos trimestres aprobados y
+//?-añade la propiedad ***isApproved*** a true o false en consecuencia.
+//?-Una vez lo tengas compruébalo con un ***console.log***.
+//?-( **Mirar abajo en pistas** ).
+//?-Puedes usar este array para probar tu función:
+//!-----------------------------------------------------------------------------------------------------------------------
 
+const alumns = [
+    { name: "Pepe Viruela", T1: false, T2: false, T3: true },
+    { name: "Lucia Aranda", T1: true, T2: false, T3: true },
+    { name: "Juan Miranda", T1: false, T2: true, T3: true },
+    { name: "Alfredo Blanco", T1: false, T2: false, T3: false },
+    { name: "Raquel Benito", T1: true, T2: true, T3: true },
+]
+    const avalua = (alumns)=>{
+        
+    let newarray = []
+newarray.forEach((alumns)=>{
+    let contador = 0
+    for (let key in alumns){
+        if (alumns[key]===true){
+             contador++;
+        }
+    }
+    if (contador>=2){
+newarray.push(alumns, isapproved : true)
+    }
+else {
+    newarray.push(alumns, isapproved : false)
+}
+    })
+    return newarray
+}
+console.log(avalua(alumns))
+    
 
 //------------------------------------------------------Iteration 3
 
