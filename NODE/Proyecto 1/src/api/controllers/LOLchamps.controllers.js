@@ -1,28 +1,36 @@
+const { deleteImgCloudinary } = require("../../middleware/files.middleware");
 const LOLchamps = require("../models/LOLchamps.model");
 
-const createLOLchamps = async (req, res, next) => {
+const registerLOLchamps = async (req, res, next) => {
+  let catchImg = req.file?.path;
   try {
     await LOLchamps.syncIndexes();
-    const customBody = {
-      name: req.body?.name,
-      origin: req.body?.origin,
-    };
-    const newLOLchamps = new LOLchamps(customBody);
-      if (req.file) {
-        newLOLchamps.image = req.file.path;
-      } else {
-        newLOLchamps.image = "https://pic.onlinewebfonts.com/svg/img_181369.png";
-      };
-    const savedLOLchamps = await newLOLchamps.save();
-    return res
-      .status(savedLOLchamps ? 200 : 404)
-      .json(savedLOLchamps ? savedLOLchamps : "error al crear el campeón");
+
+    const CLOLchampsExist = await LOLchamps.findOne({ virtualStageName: req.body.virtualStageName });
+    if (!LOLchampsExist) {
+      const newLOLchamps = new LOLchamps({ ...req.body, image: catchImg });
+
+      try {
+        const LOLchampsSave = await newLOLchamps.save();
+
+        if (LOLchampsSave) {
+          return res.status(200).json({
+            LOLchamps: LOLchampsSave
+          });
+        } else {
+          return res.status(404).json("champ not saved");
+        }
+      } catch (error) {
+        return res.status(404).json(error.message);
+      }
+    } else {
+      deleteImgCloudinary(catchImg);
+      return res.status(409).json("this champ already exist");
+    }
   } catch (error) {
-    return res.status(404).json({
-      error: "error catch create campeón",
-      message: error.message,
-    });
+    deleteImgCloudinary(catchImg);
+    return next(error);
   }
 };
 
-module.exports = { createLOLchamps };
+module.exports = { registerLOLchamps }
