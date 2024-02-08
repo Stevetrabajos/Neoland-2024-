@@ -18,7 +18,7 @@ const createPlayer = async (req, res, next) => {
       newPlayer.image = catchImg;
     } else {
       newPlayer.image =
-        "https://idro.es/wp-content/uploads/2022/07/piramide-alimentos.jpg";
+        "https://pic.onlinewebfonts.com/svg/img_181369.png";
     }
     const savedAlimento = await newAlimento.save();
 
